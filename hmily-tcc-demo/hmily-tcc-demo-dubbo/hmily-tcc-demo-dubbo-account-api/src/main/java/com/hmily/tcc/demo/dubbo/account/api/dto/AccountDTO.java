@@ -40,5 +40,25 @@ public class AccountDTO implements Serializable {
      */
     private BigDecimal amount;
 
+	public String getUserId() {
+		return userId;
+	}
+
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
+
+	public BigDecimal getAmount() {
+		return amount;
+	}
+
+	public void setAmount(BigDecimal amount) {
+		this.amount = amount;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
 
 }

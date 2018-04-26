@@ -57,4 +57,44 @@ public class CompensationQuery implements Serializable {
     private PageParameter pageParameter;
 
 
+	public String getApplicationName() {
+		return applicationName;
+	}
+
+
+	public void setApplicationName(String applicationName) {
+		this.applicationName = applicationName;
+	}
+
+
+	public String getTransId() {
+		return transId;
+	}
+
+
+	public void setTransId(String transId) {
+		this.transId = transId;
+	}
+
+
+	public Integer getRetry() {
+		return retry;
+	}
+
+
+	public void setRetry(Integer retry) {
+		this.retry = retry;
+	}
+
+
+	public PageParameter getPageParameter() {
+		return pageParameter;
+	}
+
+
+	public void setPageParameter(PageParameter pageParameter) {
+		this.pageParameter = pageParameter;
+	}
+
+
 }

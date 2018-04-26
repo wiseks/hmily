@@ -42,4 +42,36 @@ public class CompensationDTO implements Serializable {
 
     private Integer retry;
 
+	public String getApplicationName() {
+		return applicationName;
+	}
+
+	public void setApplicationName(String applicationName) {
+		this.applicationName = applicationName;
+	}
+
+	public List<String> getIds() {
+		return ids;
+	}
+
+	public void setIds(List<String> ids) {
+		this.ids = ids;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public Integer getRetry() {
+		return retry;
+	}
+
+	public void setRetry(Integer retry) {
+		this.retry = retry;
+	}
+
 }

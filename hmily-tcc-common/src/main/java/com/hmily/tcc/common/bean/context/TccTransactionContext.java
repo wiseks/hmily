@@ -45,4 +45,34 @@ public class TccTransactionContext implements Serializable {
     private int role;
 
 
+	public String getTransId() {
+		return transId;
+	}
+
+
+	public void setTransId(String transId) {
+		this.transId = transId;
+	}
+
+
+	public int getAction() {
+		return action;
+	}
+
+
+	public void setAction(int action) {
+		this.action = action;
+	}
+
+
+	public int getRole() {
+		return role;
+	}
+
+
+	public void setRole(int role) {
+		this.role = role;
+	}
+
+
 }

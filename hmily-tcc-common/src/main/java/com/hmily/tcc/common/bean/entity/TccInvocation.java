@@ -53,5 +53,54 @@ public class TccInvocation implements Serializable {
     }
 
 
+	public TccInvocation(Class<?> declaringClass, String confirmMethodName, Class<?>[] parameterTypes2,
+			Object[] args2) {
+		this.targetClass = declaringClass;
+		this.parameterTypes = parameterTypes2;
+		this.args = args2;
+		this.methodName = confirmMethodName;
+	}
+
+
+	public Class getTargetClass() {
+		return targetClass;
+	}
+
+
+	public void setTargetClass(Class targetClass) {
+		this.targetClass = targetClass;
+	}
+
+
+	public String getMethodName() {
+		return methodName;
+	}
+
+
+	public void setMethodName(String methodName) {
+		this.methodName = methodName;
+	}
+
+
+	public Class[] getParameterTypes() {
+		return parameterTypes;
+	}
+
+
+	public void setParameterTypes(Class[] parameterTypes) {
+		this.parameterTypes = parameterTypes;
+	}
+
+
+	public Object[] getArgs() {
+		return args;
+	}
+
+
+	public void setArgs(Object[] args) {
+		this.args = args;
+	}
+
+
 
 }

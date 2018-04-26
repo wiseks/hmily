@@ -107,4 +107,134 @@ public class CoordinatorRepositoryAdapter {
     private String cancelMethod;
 
 
+	public String getTransId() {
+		return transId;
+	}
+
+
+	public void setTransId(String transId) {
+		this.transId = transId;
+	}
+
+
+	public int getStatus() {
+		return status;
+	}
+
+
+	public void setStatus(int status) {
+		this.status = status;
+	}
+
+
+	public int getRole() {
+		return role;
+	}
+
+
+	public void setRole(int role) {
+		this.role = role;
+	}
+
+
+	public int getRetriedCount() {
+		return retriedCount;
+	}
+
+
+	public void setRetriedCount(int retriedCount) {
+		this.retriedCount = retriedCount;
+	}
+
+
+	public Date getCreateTime() {
+		return createTime;
+	}
+
+
+	public void setCreateTime(Date createTime) {
+		this.createTime = createTime;
+	}
+
+
+	public Date getLastTime() {
+		return lastTime;
+	}
+
+
+	public void setLastTime(Date lastTime) {
+		this.lastTime = lastTime;
+	}
+
+
+	public Integer getVersion() {
+		return version;
+	}
+
+
+	public void setVersion(Integer version) {
+		this.version = version;
+	}
+
+
+	public Integer getPattern() {
+		return pattern;
+	}
+
+
+	public void setPattern(Integer pattern) {
+		this.pattern = pattern;
+	}
+
+
+	public byte[] getContents() {
+		return contents;
+	}
+
+
+	public void setContents(byte[] contents) {
+		this.contents = contents;
+	}
+
+
+	public String getTargetClass() {
+		return targetClass;
+	}
+
+
+	public void setTargetClass(String targetClass) {
+		this.targetClass = targetClass;
+	}
+
+
+	public String getTargetMethod() {
+		return targetMethod;
+	}
+
+
+	public void setTargetMethod(String targetMethod) {
+		this.targetMethod = targetMethod;
+	}
+
+
+	public String getConfirmMethod() {
+		return confirmMethod;
+	}
+
+
+	public void setConfirmMethod(String confirmMethod) {
+		this.confirmMethod = confirmMethod;
+	}
+
+
+	public String getCancelMethod() {
+		return cancelMethod;
+	}
+
+
+	public void setCancelMethod(String cancelMethod) {
+		this.cancelMethod = cancelMethod;
+	}
+
+
 }

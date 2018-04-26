@@ -97,5 +97,109 @@ public class TccConfig {
      */
     private TccFileConfig tccFileConfig;
 
+	public String getRepositorySuffix() {
+		return repositorySuffix;
+	}
+
+	public void setRepositorySuffix(String repositorySuffix) {
+		this.repositorySuffix = repositorySuffix;
+	}
+
+	public String getSerializer() {
+		return serializer;
+	}
+
+	public void setSerializer(String serializer) {
+		this.serializer = serializer;
+	}
+
+	public int getScheduledThreadMax() {
+		return scheduledThreadMax;
+	}
+
+	public void setScheduledThreadMax(int scheduledThreadMax) {
+		this.scheduledThreadMax = scheduledThreadMax;
+	}
+
+	public int getScheduledDelay() {
+		return scheduledDelay;
+	}
+
+	public void setScheduledDelay(int scheduledDelay) {
+		this.scheduledDelay = scheduledDelay;
+	}
+
+	public int getRetryMax() {
+		return retryMax;
+	}
+
+	public void setRetryMax(int retryMax) {
+		this.retryMax = retryMax;
+	}
+
+	public int getRecoverDelayTime() {
+		return recoverDelayTime;
+	}
+
+	public void setRecoverDelayTime(int recoverDelayTime) {
+		this.recoverDelayTime = recoverDelayTime;
+	}
+
+	public String getRepositorySupport() {
+		return repositorySupport;
+	}
+
+	public void setRepositorySupport(String repositorySupport) {
+		this.repositorySupport = repositorySupport;
+	}
+
+	public int getBufferSize() {
+		return bufferSize;
+	}
+
+	public void setBufferSize(int bufferSize) {
+		this.bufferSize = bufferSize;
+	}
+
+	public TccDbConfig getTccDbConfig() {
+		return tccDbConfig;
+	}
+
+	public void setTccDbConfig(TccDbConfig tccDbConfig) {
+		this.tccDbConfig = tccDbConfig;
+	}
+
+	public TccMongoConfig getTccMongoConfig() {
+		return tccMongoConfig;
+	}
+
+	public void setTccMongoConfig(TccMongoConfig tccMongoConfig) {
+		this.tccMongoConfig = tccMongoConfig;
+	}
+
+	public TccRedisConfig getTccRedisConfig() {
+		return tccRedisConfig;
+	}
+
+	public void setTccRedisConfig(TccRedisConfig tccRedisConfig) {
+		this.tccRedisConfig = tccRedisConfig;
+	}
+
+	public TccZookeeperConfig getTccZookeeperConfig() {
+		return tccZookeeperConfig;
+	}
+
+	public void setTccZookeeperConfig(TccZookeeperConfig tccZookeeperConfig) {
+		this.tccZookeeperConfig = tccZookeeperConfig;
+	}
+
+	public TccFileConfig getTccFileConfig() {
+		return tccFileConfig;
+	}
+
+	public void setTccFileConfig(TccFileConfig tccFileConfig) {
+		this.tccFileConfig = tccFileConfig;
+	}
+
 
 }

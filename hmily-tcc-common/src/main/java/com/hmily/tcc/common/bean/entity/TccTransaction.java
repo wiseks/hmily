@@ -113,5 +113,93 @@ public class TccTransaction implements Serializable {
         participants.add(participant);
     }
 
+	public String getTransId() {
+		return transId;
+	}
+
+	public int getStatus() {
+		return status;
+	}
+
+	public int getRole() {
+		return role;
+	}
+
+	public int getRetriedCount() {
+		return retriedCount;
+	}
+
+	public Date getCreateTime() {
+		return createTime;
+	}
+
+	public Date getLastTime() {
+		return lastTime;
+	}
+
+	public Integer getVersion() {
+		return version;
+	}
+
+	public Integer getPattern() {
+		return pattern;
+	}
+
+	public String getTargetClass() {
+		return targetClass;
+	}
+
+	public String getTargetMethod() {
+		return targetMethod;
+	}
+
+	public List<Participant> getParticipants() {
+		return participants;
+	}
+
+	public void setTransId(String transId) {
+		this.transId = transId;
+	}
+
+	public void setStatus(int status) {
+		this.status = status;
+	}
+
+	public void setRole(int role) {
+		this.role = role;
+	}
+
+	public void setRetriedCount(int retriedCount) {
+		this.retriedCount = retriedCount;
+	}
+
+	public void setCreateTime(Date createTime) {
+		this.createTime = createTime;
+	}
+
+	public void setLastTime(Date lastTime) {
+		this.lastTime = lastTime;
+	}
+
+	public void setVersion(Integer version) {
+		this.version = version;
+	}
+
+	public void setPattern(Integer pattern) {
+		this.pattern = pattern;
+	}
+
+	public void setTargetClass(String targetClass) {
+		this.targetClass = targetClass;
+	}
+
+	public void setTargetMethod(String targetMethod) {
+		this.targetMethod = targetMethod;
+	}
+
+	public void setParticipants(List<Participant> participants) {
+		this.participants = participants;
+	}
+
 
 }

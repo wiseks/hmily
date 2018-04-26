@@ -43,4 +43,22 @@ public class TccTransactionEvent implements Serializable {
     public void clear() {
         tccTransaction = null;
     }
+
+	public TccTransaction getTccTransaction() {
+		return tccTransaction;
+	}
+
+	public void setTccTransaction(TccTransaction tccTransaction) {
+		this.tccTransaction = tccTransaction;
+	}
+
+	public int getType() {
+		return type;
+	}
+
+	public void setType(int type) {
+		this.type = type;
+	}
+    
+    
 }
