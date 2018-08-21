@@ -8,7 +8,7 @@ spring:
         driver-class-name:  com.mysql.jdbc.Driver
         url: jdbc:mysql://localhost:3306/tcc_account?useUnicode=true&characterEncoding=utf8
         username: root
-        password: root
+        password: ROOT
 
 hmily:
     tcc :
@@ -22,7 +22,7 @@ hmily:
                  driverClassName  : com.mysql.jdbc.Driver
                  url :  jdbc:mysql://localhost:3306/tcc?useUnicode=true&amp;characterEncoding=utf8
                  username : root
-                 password : root
+                 password : ROOT
 
        # repositorySupport : redis
        #         hostName  : 192.168.1.68
