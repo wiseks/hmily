@@ -20,6 +20,7 @@
 package com.hmily.tcc.core.disruptor.publisher;
 
 import com.hmily.tcc.common.bean.entity.TccTransaction;
+import com.hmily.tcc.common.enums.EventTypeEnum;
 import com.hmily.tcc.core.disruptor.event.TccTransactionEvent;
 import com.hmily.tcc.core.disruptor.factory.TccTransactionEventFactory;
 import com.hmily.tcc.core.disruptor.handler.TccTransactionEventHandler;
@@ -63,9 +64,9 @@ public class TccTransactionEventPublisher implements DisposableBean {
         disruptor.start();
     }
 
-    public void publishEvent(TccTransaction tccTransaction,int type) {
+    public void publishEvent(TccTransaction tccTransaction,EventTypeEnum type) {
         final RingBuffer<TccTransactionEvent> ringBuffer = disruptor.getRingBuffer();
-        ringBuffer.publishEvent(new TccTransactionEventTranslator(type), tccTransaction);
+        ringBuffer.publishEvent(new TccTransactionEventTranslator(type.getCode()), tccTransaction);
     }
 
 

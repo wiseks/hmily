@@ -106,7 +106,7 @@ public class TccTransactionManager {
         CURRENT.set(tccTransaction);
 
         //发布事务保存事件，异步保存
-        tccTransactionEventPublisher.publishEvent(tccTransaction, EventTypeEnum.SAVE.getCode());
+        tccTransactionEventPublisher.publishEvent(tccTransaction, EventTypeEnum.SAVE);
 
         //设置tcc事务上下文，这个类会传递给远端
         TccTransactionContext context = new TccTransactionContext();
@@ -139,7 +139,7 @@ public class TccTransactionManager {
         TccTransactionCacheManager.getInstance().cacheTccTransaction(tccTransaction);
 
         //发布事务保存事件，异步保存
-        tccTransactionEventPublisher.publishEvent(tccTransaction, EventTypeEnum.SAVE.getCode());
+        tccTransactionEventPublisher.publishEvent(tccTransaction, EventTypeEnum.SAVE);
 
         return tccTransaction;
     }
@@ -151,7 +151,7 @@ public class TccTransactionManager {
      * @param tccTransaction 事务对象
      */
     public void updateStatus(TccTransaction tccTransaction) {
-        tccTransactionEventPublisher.publishEvent(tccTransaction, EventTypeEnum.UPDATE_STATUS.getCode());
+        tccTransactionEventPublisher.publishEvent(tccTransaction, EventTypeEnum.UPDATE_STATUS);
     }
 
     /**
@@ -160,7 +160,7 @@ public class TccTransactionManager {
      * @param tccTransaction 事务对象
      */
     public void deleteTransaction(TccTransaction tccTransaction) {
-        tccTransactionEventPublisher.publishEvent(tccTransaction, EventTypeEnum.DELETE.getCode());
+        tccTransactionEventPublisher.publishEvent(tccTransaction, EventTypeEnum.DELETE);
     }
 
     /**
@@ -169,7 +169,7 @@ public class TccTransactionManager {
      * @param tccTransaction 事务对象
      */
     public void updateParticipant(TccTransaction tccTransaction) {
-        tccTransactionEventPublisher.publishEvent(tccTransaction, EventTypeEnum.UPDATE_PARTICIPANT.getCode());
+        tccTransactionEventPublisher.publishEvent(tccTransaction, EventTypeEnum.UPDATE_PARTICIPANT);
     }
 
     public TccTransaction getCurrentTransaction() {

@@ -101,7 +101,7 @@ public class SpringBeanUtils {
      * @param beanName  名称
      * @param beanClazz 定义bean
      */
-    public void registerBean(String beanName, Class beanClazz, Map<String, Object> propertys) {
+    public void registerBean(String beanName, Class<?> beanClazz, Map<String, Object> propertys) {
         AssertUtils.notNull(beanName);
         AssertUtils.notNull(beanClazz);
         BeanDefinitionBuilder builder = BeanDefinitionBuilder.genericBeanDefinition(beanClazz);
@@ -146,7 +146,7 @@ public class SpringBeanUtils {
      * @param beanName  名称
      * @param beanClazz 定义bean
      */
-    public void registerBean(String beanName, Class beanClazz) {
+    public void registerBean(String beanName, Class<?> beanClazz) {
         registerBean(beanName, beanClazz, null);
     }
 
