@@ -98,7 +98,7 @@ public class ParticipantTccTransactionHandler implements TccTransactionHandler {
         return getDefaultValue(method.getReturnType());
     }
 
-    private Object getDefaultValue(Class type) {
+    private Object getDefaultValue(Class<?> type) {
 
         if (boolean.class.equals(type)) {
             return false;
