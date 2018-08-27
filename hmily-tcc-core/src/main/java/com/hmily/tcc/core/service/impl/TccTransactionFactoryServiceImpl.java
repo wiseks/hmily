@@ -33,7 +33,7 @@ import java.util.Objects;
  * @author xiaoyu
  */
 @Service("tccTransactionFactoryService")
-public class TccTransactionFactoryServiceImpl implements TccTransactionFactoryService {
+public class TccTransactionFactoryServiceImpl implements TccTransactionFactoryService<Object> {
 
 
     private final TccTransactionManager tccTransactionManager;
@@ -52,7 +52,7 @@ public class TccTransactionFactoryServiceImpl implements TccTransactionFactorySe
      * @throws Throwable 抛出异常
      */
     @Override
-    public Class factoryOf(TccTransactionContext context) throws Throwable {
+    public Class<?> factoryOf(TccTransactionContext context) throws Throwable {
 
         //如果事务还没开启或者 tcc事务上下文是空， 那么应该进入发起调用
         if (!tccTransactionManager.isBegin() && Objects.isNull(context)) {

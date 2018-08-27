@@ -31,13 +31,12 @@ import org.springframework.stereotype.Service;
  * @author xiaoyu
  */
 @Service("tccTransactionAspectService")
-@SuppressWarnings("unchecked")
 public class TccTransactionAspectServiceImpl implements TccTransactionAspectService {
 
-    private final TccTransactionFactoryService tccTransactionFactoryService;
+    private final TccTransactionFactoryService<?> tccTransactionFactoryService;
 
     @Autowired
-    public TccTransactionAspectServiceImpl(TccTransactionFactoryService tccTransactionFactoryService) {
+    public TccTransactionAspectServiceImpl(TccTransactionFactoryService<?> tccTransactionFactoryService) {
         this.tccTransactionFactoryService = tccTransactionFactoryService;
     }
 
@@ -51,7 +50,7 @@ public class TccTransactionAspectServiceImpl implements TccTransactionAspectServ
      */
     @Override
     public Object invoke(TccTransactionContext tccTransactionContext, ProceedingJoinPoint point) throws Throwable {
-        final Class aClass = tccTransactionFactoryService.factoryOf(tccTransactionContext);
+        final Class<?> aClass = tccTransactionFactoryService.factoryOf(tccTransactionContext);
         final TccTransactionHandler txTransactionHandler =
                 (TccTransactionHandler) SpringBeanUtils.getInstance().getBean(aClass);
         return txTransactionHandler.handler(point, tccTransactionContext);
