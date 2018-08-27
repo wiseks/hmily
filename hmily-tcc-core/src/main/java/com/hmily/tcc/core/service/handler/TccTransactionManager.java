@@ -20,7 +20,6 @@ package com.hmily.tcc.core.service.handler;
 import com.google.common.collect.Lists;
 import com.hmily.tcc.annotation.Tcc;
 import com.hmily.tcc.annotation.TccPatternEnum;
-import com.hmily.tcc.common.enums.CoordinatorActionEnum;
 import com.hmily.tcc.common.enums.EventTypeEnum;
 import com.hmily.tcc.common.enums.TccActionEnum;
 import com.hmily.tcc.common.enums.TccRoleEnum;
@@ -33,7 +32,6 @@ import com.hmily.tcc.common.bean.entity.TccTransaction;
 import com.hmily.tcc.core.cache.TccTransactionCacheManager;
 import com.hmily.tcc.core.concurrent.threadlocal.TransactionContextLocal;
 import com.hmily.tcc.core.coordinator.CoordinatorService;
-import com.hmily.tcc.core.coordinator.command.CoordinatorAction;
 import com.hmily.tcc.core.coordinator.command.CoordinatorCommand;
 import com.hmily.tcc.core.disruptor.publisher.TccTransactionEventPublisher;
 import com.hmily.tcc.core.helper.SpringBeanUtils;
@@ -58,7 +56,6 @@ import java.util.stream.Collectors;
  * @author xiaoyu
  */
 @Component
-@SuppressWarnings("unchecked")
 public class TccTransactionManager {
 
     /**
@@ -100,7 +97,7 @@ public class TccTransactionManager {
 
         //构建事务对象
         final TccTransaction tccTransaction =
-                buildTccTransaction(point, TccRoleEnum.START.getCode(), null);
+                buildTccTransaction(point, TccRoleEnum.START, null);
 
         //将事务对象保存在threadLocal中
         CURRENT.set(tccTransaction);
@@ -133,7 +130,7 @@ public class TccTransactionManager {
 
 
         final TccTransaction tccTransaction =
-                buildTccTransaction(point, TccRoleEnum.PROVIDER.getCode(), context.getTransId());
+                buildTccTransaction(point, TccRoleEnum.PROVIDER, context.getTransId());
 
         //提供者事务存储到guava
         TccTransactionCacheManager.getInstance().cacheTccTransaction(tccTransaction);
@@ -318,10 +315,10 @@ public class TccTransactionManager {
 
     private void executeParticipantMethod(TccInvocation tccInvocation) throws Exception {
         if (Objects.nonNull(tccInvocation)) {
-            final Class clazz = tccInvocation.getTargetClass();
+            final Class<?> clazz = tccInvocation.getTargetClass();
             final String method = tccInvocation.getMethodName();
             final Object[] args = tccInvocation.getArgs();
-            final Class[] parameterTypes = tccInvocation.getParameterTypes();
+            final Class<?>[] parameterTypes = tccInvocation.getParameterTypes();
             final Object bean = SpringBeanUtils.getInstance().getBean(clazz);
             MethodUtils.invokeMethod(bean, method, args, parameterTypes);
 
@@ -338,7 +335,7 @@ public class TccTransactionManager {
     }
 
 
-    private TccTransaction buildTccTransaction(ProceedingJoinPoint point, int role, String transId) {
+    private TccTransaction buildTccTransaction(ProceedingJoinPoint point, TccRoleEnum role, String transId) {
         TccTransaction tccTransaction;
         if (StringUtils.isNoneBlank(transId)) {
             tccTransaction = new TccTransaction(transId);
@@ -347,7 +344,7 @@ public class TccTransactionManager {
         }
 
         tccTransaction.setStatus(TccActionEnum.PRE_TRY.getCode());
-        tccTransaction.setRole(role);
+        tccTransaction.setRole(role.getCode());
 
         MethodSignature signature = (MethodSignature) point.getSignature();
         Method method = signature.getMethod();
