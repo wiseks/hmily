@@ -19,10 +19,8 @@ package com.hmily.tcc.common.bean.entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
-import java.util.Arrays;
 
 
 /**
@@ -35,14 +33,14 @@ public class TccInvocation implements Serializable {
     private static final long serialVersionUID = -5108578223428529356L;
 
     @Getter
-    private Class targetClass;
+    private Class<?> targetClass;
 
 
     @Getter
     private String methodName;
 
     @Getter
-    private Class[] parameterTypes;
+    private Class<?>[] parameterTypes;
 
     @Getter
     private Object[] args;
@@ -62,12 +60,12 @@ public class TccInvocation implements Serializable {
 	}
 
 
-	public Class getTargetClass() {
+	public Class<?> getTargetClass() {
 		return targetClass;
 	}
 
 
-	public void setTargetClass(Class targetClass) {
+	public void setTargetClass(Class<?> targetClass) {
 		this.targetClass = targetClass;
 	}
 
@@ -82,12 +80,12 @@ public class TccInvocation implements Serializable {
 	}
 
 
-	public Class[] getParameterTypes() {
+	public Class<?>[] getParameterTypes() {
 		return parameterTypes;
 	}
 
 
-	public void setParameterTypes(Class[] parameterTypes) {
+	public void setParameterTypes(Class<?>[] parameterTypes) {
 		this.parameterTypes = parameterTypes;
 	}
 
